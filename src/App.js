@@ -1,5 +1,5 @@
-import logo from './logo.svg';
-import './styles/App.css';
+import logo from "./logo.svg";
+import "./styles/App.css";
 
 function App() {
   return (
@@ -17,6 +17,9 @@ function App() {
         >
           Learn React
         </a>
+        <h1 className="text-red-600 hover:scale-150 transition duration-1000 cursor-pointer hover:rotate-[360deg] animate-pulse">
+          Hello tukaRatik!
+        </h1>
       </header>
     </div>
   );
