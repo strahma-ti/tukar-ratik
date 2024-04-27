@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/*body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
@@ -14,4 +14,18 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
-}
+} */
+
+/*@layer utilities {
+  .H1 {
+    @apply text-[45px] font-normal leading-120;
+  }
+
+  .H1-bold {
+    @apply text-[45px] font-bold leading-120;
+  }
+
+  .H2 {
+  @apply text-[32px]
+  }
+} */
