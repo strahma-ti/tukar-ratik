@@ -15,3 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 } */
+
+@layer components {
+  .social-icon {
+    @apply size-[30px] px-[5px] hover:text-tertiary-800 active:text-tertiary-900;
+  }
+}
