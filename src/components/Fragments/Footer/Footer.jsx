@@ -21,7 +21,7 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div></div>
+        <div className="w-[415px] flex flex-col gap-[10px] pt-[38px] pb-[10px] items-start px-[10px]"></div>
       </div>
       <div></div>
     </footer>
