@@ -1,10 +1,12 @@
 import logo from "./logo.svg";
 import "./styles/App.css";
+import Navbar from "./components/Fragments/Navbar/Navbar";
 import Footer from "./components/Fragments/Footer/Footer";
 
 function App() {
   return (
     <div className="App">
+      <Navbar />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -21,8 +23,8 @@ function App() {
         <h1 className="text-red-600 hover:scale-150 transition duration-1000 cursor-pointer hover:rotate-[360deg] animate-pulse font-sans">
           Hello tukaRatik!
         </h1>
-        <Footer />
       </header>
+      <Footer />
     </div>
   );
 }
