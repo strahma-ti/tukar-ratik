@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Dropdown } from "flowbite-react";
+import { Dropdown } from "flowbite-react";
 
 function Navbar() {
   return (
