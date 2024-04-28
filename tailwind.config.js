@@ -61,6 +61,9 @@ module.exports = {
           800: "#274E37",
           900: "#172F21",
         },
+        others: {
+          50: "#99D6CF",
+        },
       },
       fontFamily: {
         sans: ["DM Sans", "sans-serif"],

@@ -1,5 +1,3 @@
-import React from "react";
-
 function Jumbotron() {
   return (
     <div className="w-full h-[597px] mb-[190px] relative flex items-center justify-center group">
