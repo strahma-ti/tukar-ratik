@@ -34,9 +34,9 @@ function Navbar() {
         arrowIcon={false}
         inline
       >
-        <Dropdown.Item>Login</Dropdown.Item>
+        <Dropdown.Item className="font-semibold">Login</Dropdown.Item>
         <Dropdown.Divider />
-        <Dropdown.Item>Register</Dropdown.Item>
+        <Dropdown.Item className="font-semibold">Register</Dropdown.Item>
       </Dropdown>
     </nav>
   );
