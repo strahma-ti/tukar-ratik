@@ -10,7 +10,7 @@ import {
 
 function Footer() {
   return (
-    <footer className="absolute bottom-0 w-full h-fit flex flex-col items-center bg-primary-100 pt-[27px] px-[108px] font-sans">
+    <footer className="mt-[100px] w-full h-fit flex flex-col items-center bg-primary-100 pt-[27px] px-[108px] font-sans">
       <div id="footer1" className="flex w-full justify-between py-[27px]">
         <div className="w-[480px] flex flex-col gap-3">
           <img
