@@ -65,6 +65,7 @@ module.exports = {
       fontFamily: {
         sans: ["DM Sans", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       boxShadow: {
         100: "0px 8px 8px -4px rgba(24, 39, 75, 0.08), 0px 4px 6px -4px rgba(24, 39, 75, 0.12)",
@@ -106,7 +107,7 @@ module.exports = {
           {
             lineHeight: "120%",
             letterSpacing: "0%",
-            fontWeight: "400",
+            fontWeight: "500",
           },
         ],
         Subtitle: [

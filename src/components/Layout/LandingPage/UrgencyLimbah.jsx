@@ -2,7 +2,7 @@ import React from "react";
 
 function UrgencyLimbah() {
   return (
-    <div className="flex gap-[38px] items-center text-left">
+    <section className="flex gap-[38px] items-center text-left">
       <div className="flex flex-col gap-[10px] w-[499px]">
         <h1 className="text-H2 font-bold text-primary-800">
           Darurat Limbah Sisa Makanan dan Organik di Banjarmasin
@@ -28,12 +28,12 @@ function UrgencyLimbah() {
       <div className="w-[582px] h-[486px] rounded-xl overflow-hidden relative">
         <div className="size-full bg-[#37584F] opacity-[0.37] absolute"></div>
         <img
-          src="images/urgencylimbah-img1.png"
+          src="images/LandingPage/urgencylimbah-img1.png"
           alt="Foto Tukang Sampah"
           className="size-full object-cover"
         />
       </div>
-    </div>
+    </section>
   );
 }
 
