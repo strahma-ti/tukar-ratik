@@ -2,11 +2,15 @@ import React from "react";
 
 function Jumbotron() {
   return (
-    <div
-      className="w-full h-[597px] bg-cover bg-top relative flex items-center justify-center"
-      style={{ backgroundImage: "url('images/hero-landingpage.png')" }}
-    >
-      <div className="absolute z-[1] size-full bg-gradient-to-b from-[rgb(87,122,118,0.6)] to-[#1F2C2A] opacity-60"></div>
+    <div className="w-full h-[597px] mb-[190px] relative flex items-center justify-center group">
+      <div className="absolute z-[1] size-full bg-gradient-to-b from-[rgb(87,122,118,0.6)] to-[#1F2C2A] opacity-80"></div>
+      <div className="size-full absolute overflow-hidden">
+        <img
+          src="images/hero-landingpage.png"
+          alt=""
+          className=" object-cover object-top group-hover:scale-110 transition duration-[1500ms]"
+        />
+      </div>
       <div className="flex flex-col z-10">
         <h1 className="text-5xl font-poppins font-semibold text-green-50 leading-[120%]">
           Tukar Sisa Makanan <br />
@@ -23,7 +27,7 @@ function Jumbotron() {
           <button className="size-fit px-6 py-[13px] bg-primary-600 text-gray-50 rounded-3xl text-Subtitle hover:bg-tertiary-600 transition duration-300">
             Telusuri Lebih Lanjut
           </button>
-          <div className="w-[946px] h-[180px] bg-white rounded-lg absolute -bottom-[90px] shadow-500 flex items-center gap-7 px-[79px]">
+          <div className="w-[946px] h-[180px] bg-white rounded-lg absolute -bottom-[90px] shadow-500 flex items-center justify-center gap-7 px-[79px]">
             <div className="flex flex-col gap-[6px] items-center w-[236px]">
               <img
                 src="images/icon-landingpage1.png"
