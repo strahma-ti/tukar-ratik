@@ -1,5 +1,6 @@
 import logo from "./logo.svg";
 import "./styles/App.css";
+import Footer from "./components/Fragments/Footer/Footer";
 
 function App() {
   return (
@@ -17,9 +18,10 @@ function App() {
         >
           Learn React
         </a>
-        <h1 className="text-red-600 hover:scale-150 transition duration-1000 cursor-pointer hover:rotate-[360deg] animate-pulse">
+        <h1 className="text-red-600 hover:scale-150 transition duration-1000 cursor-pointer hover:rotate-[360deg] animate-pulse font-sans">
           Hello tukaRatik!
         </h1>
+        <Footer />
       </header>
     </div>
   );
