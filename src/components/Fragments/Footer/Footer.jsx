@@ -35,7 +35,7 @@ function Footer() {
             <div className="flex w-full gap-6">
               <div className="flex items-center gap-[10px] flex-row-reverse">
                 <a
-                  href="index"
+                  href="kirimlimbah"
                   className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Kirim Limbah
@@ -44,7 +44,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-[10px] flex-row-reverse">
                 <a
-                  href="index"
+                  href="tukarpoin"
                   className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Tukar Point
