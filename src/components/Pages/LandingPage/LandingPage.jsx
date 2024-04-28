@@ -17,7 +17,7 @@ function LandingPage() {
         <GetPoints />
         <FrequentlyAskedQuestions />
       </div>
-      <Footer />\
+      <Footer />
     </>
   );
 }
