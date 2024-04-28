@@ -4,6 +4,7 @@ import Jumbotron from "../../Layout/LandingPage/Jumbotron";
 import UrgencyLimbah from "../../Layout/LandingPage/UrgencyLimbah";
 import OurServices from "../../Layout/LandingPage/OurServices";
 import GetPoints from "../../Layout/LandingPage/GetPoints";
+import FrequentlyAskedQuestions from "../../Layout/LandingPage/FrequentlyAskedQuestions";
 
 function LandingPage() {
   return (
@@ -14,8 +15,9 @@ function LandingPage() {
         <UrgencyLimbah />
         <OurServices />
         <GetPoints />
+        <FrequentlyAskedQuestions />
       </div>
-      <Footer />
+      <Footer />\
     </>
   );
 }

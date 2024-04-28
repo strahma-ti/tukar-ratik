@@ -63,6 +63,7 @@ module.exports = {
         },
         others: {
           50: "#99D6CF",
+          100: "#4D706C",
         },
       },
       fontFamily: {
