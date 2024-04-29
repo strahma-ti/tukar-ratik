@@ -19,7 +19,7 @@ function OurServices() {
       <div id="our-services-content" className="flex flex-col gap-[90px]">
         <div id="our-services-left-content" className="flex gap-6 items-center">
           <div
-            className="w-[360px] h-[364px] rounded-xl bg-cover px-10 py-[26px] flex "
+            className="w-[360px] h-[364px] rounded-xl bg-cover px-10 py-[26px] flex items-center justify-center"
             style={{
               backgroundImage: "url('images/LandingPage/ourservices-img1.png')",
             }}
