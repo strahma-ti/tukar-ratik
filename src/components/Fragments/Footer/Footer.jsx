@@ -1,13 +1,13 @@
-import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faWhatsapp,
   faInstagram,
   faXTwitter,
   faFacebook,
   faTiktok,
-} from "@fortawesome/free-brands-svg-icons";
-import { NavLink } from "react-router-dom";
+} from '@fortawesome/free-brands-svg-icons';
+import { NavLink } from 'react-router-dom';
 
 function Footer() {
   return (
@@ -48,7 +48,7 @@ function Footer() {
                   to="/tukarPoin"
                   className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
-                  Tukar Point
+                  Tukar Poin
                 </NavLink>
                 <div className="w-[2px] h-[8px] bg-primary-700 ml-[1px] peer-hover:bg-primary-800 peer-active:bg-primary-900"></div>
               </div>
@@ -77,19 +77,19 @@ function Footer() {
           sosial media kami melalui
         </h1>
         <div className="flex items-center gap-[10px] text-primary-700">
-          <a href="fb.com">
+          <a href="/">
             <FontAwesomeIcon icon={faWhatsapp} className="social-icon" />
           </a>
-          <a href="fb.com">
+          <a href="/">
             <FontAwesomeIcon icon={faInstagram} className="social-icon" />
           </a>
-          <a href="fb.com">
+          <a href="/">
             <FontAwesomeIcon icon={faXTwitter} className="social-icon" />
           </a>
-          <a href="fb.com">
+          <a href="/">
             <FontAwesomeIcon icon={faFacebook} className="social-icon" />
           </a>
-          <a href="fb.com">
+          <a href="/">
             <FontAwesomeIcon icon={faTiktok} className="social-icon" />
           </a>
         </div>

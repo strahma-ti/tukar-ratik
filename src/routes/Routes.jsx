@@ -14,7 +14,7 @@ const LoginPage = React.lazy(() =>
   import('../components/Pages/AuthPage/LoginPage')
 );
 const RegisterPage = React.lazy(() =>
-  import('../components/Pages/LandingPage/LandingPage')
+  import('../components/Pages/AuthPage/RegisterPage')
 );
 
 const ProjectRoutes = () => {
