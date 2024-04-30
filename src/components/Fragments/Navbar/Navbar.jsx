@@ -1,23 +1,26 @@
-import React from "react";
-import { Dropdown } from "flowbite-react";
+import React from 'react';
+import { Dropdown } from 'flowbite-react';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
     <nav className="w-full h-[66px] px-7 bg-white flex items-center justify-between shadow-500 font-sans">
-      <img
-        src="images/app-logo-m.png"
-        alt=""
-        className="w-[158px] h-[46px] object-cover"
-      />
+      <Link to="/">
+        <img
+          src="images/app-logo-m.png"
+          alt=""
+          className="w-[158px] h-[46px] object-cover"
+        />
+      </Link>
       <div className="flex items-center gap-10">
-        <a
-          href="/"
+        <Link
+          to="/kirimLimbah"
           className="text-Subtitle font-semibold text-primary-700 hover:text-primary-800"
         >
           Kirim Limbah
-        </a>
+        </Link>
         <a
-          href="/"
+          href="/tukarPoin"
           className="text-Subtitle font-semibold text-primary-700 hover:text-primary-800"
         >
           Tukar Poin
@@ -34,9 +37,14 @@ function Navbar() {
         arrowIcon={false}
         inline
       >
-        <Dropdown.Item className="font-semibold">Login</Dropdown.Item>
+        <Link to="/login">
+          {' '}
+          <Dropdown.Item className="font-semibold">Login</Dropdown.Item>
+        </Link>
         <Dropdown.Divider />
-        <Dropdown.Item className="font-semibold">Register</Dropdown.Item>
+        <Link to="/register">
+          <Dropdown.Item className="font-semibold">Register</Dropdown.Item>
+        </Link>
       </Dropdown>
     </nav>
   );

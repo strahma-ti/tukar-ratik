@@ -1,4 +1,5 @@
-import Stepper from "../../Elements/Stepper/Stepper";
+import Stepper from '../../Elements/Stepper/Stepper';
+import { Link } from 'react-router-dom';
 
 function OurServices() {
   return (
@@ -36,7 +37,7 @@ function OurServices() {
               <br />
               Isi formulir yang disediakan di platform kami lalu tunggu
               konfirmasi dari sistem. Kami akan mencocokkan permintaan dengan
-              driver terdekat yang akan menjemput limbah dari lokasi pengguna.{" "}
+              driver terdekat yang akan menjemput limbah dari lokasi pengguna.{' '}
               <br />
               <br />
               Selama proses ini, pengguna dapat memantau status pengambilan
@@ -44,9 +45,12 @@ function OurServices() {
               diproses di pusat pengolahan, poin akan diterima untuk digunakan
               pada tukar poin.
             </p>
-            <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl self-end active:scale-90">
+            <Link
+              to="/kirimlimbah"
+              className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl self-end active:scale-90"
+            >
               Kirim Limbah
-            </button>
+            </Link>
           </div>
         </div>
         <div id="our-services-right" className="flex gap-6 group">
@@ -62,7 +66,7 @@ function OurServices() {
               Kami menawarkan produk sayuran segar dan telur dari petani dan
               peternak lokal, yang dijamin keaslian dan kualitasnya. Setiap
               produk memiliki nilai poin yang sesuai, dan pengguna dapat
-              menukarkan poin mereka sesuai dengan preferensi masing-masing.{" "}
+              menukarkan poin mereka sesuai dengan preferensi masing-masing.{' '}
               <br />
               <br />
               Proses tukar poin dilakukan secara online melalui platform kami,
@@ -73,9 +77,12 @@ function OurServices() {
               Dengan “Tukar Poin”, Anda ikut mendukung pertanian lokal dan
               peternak di sekitar kita.
             </p>
-            <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl active:scale-90">
+            <Link
+              to="/tukarpoin"
+              className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl active:scale-90"
+            >
               Tukar Poin
-            </button>
+            </Link>
           </div>
           <div className="w-[465px] h-[454px] overflow-hidden rounded-xl group-hover:scale-95 transition duration-700 cursor-pointer">
             <img

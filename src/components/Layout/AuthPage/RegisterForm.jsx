@@ -8,11 +8,12 @@ import {
 import { Text } from '../../Elements/Text/Text';
 import { Link } from 'react-router-dom';
 
-function LoginForm() {
+function RegisterForm() {
   const [showPassword, setShowPassword] = useState(false);
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleLoginClick = () => {
     let isError = false;
@@ -22,10 +23,12 @@ function LoginForm() {
         fullname,
         email,
         password,
+        confirmPassword,
       };
       console.log(data.fullname);
       console.log(data.email);
       console.log(data.password);
+      console.log(data.confirmPassword);
     }
   };
 
@@ -39,6 +42,10 @@ function LoginForm() {
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
   };
 
   return (
@@ -56,14 +63,17 @@ function LoginForm() {
       </Link>
       <div className="flex flex-col w-full px-[85px] gap-[30px]">
         <Text textType="h2Bold" className="text-white">
-          Masuk
+          Daftar
         </Text>
         <div
           id="login-form"
           className="flex flex-col px-[5px] gap-[10px] w-[354px]"
         >
           <label htmlFor="fullname" className="">
-            <Text textType="subtitle" className="text-primary-50 mb-0.5">
+            <Text
+              textType="subtitle"
+              className="text-primary-50 mb-0.5 after:content-['*'] after:ml-1 after:text-red-600"
+            >
               Nama Lengkap
             </Text>
             <input
@@ -76,7 +86,10 @@ function LoginForm() {
             />
           </label>
           <label htmlFor="email" className="">
-            <Text textType="subtitle" className="text-primary-50 mb-0.5">
+            <Text
+              textType="subtitle"
+              className="text-primary-50 mb-0.5 after:content-['*'] after:ml-1 after:text-red-600"
+            >
               Email
             </Text>
             <input
@@ -92,7 +105,10 @@ function LoginForm() {
             </div>
           </label>
           <label htmlFor="password" className="">
-            <Text textType="subtitle" className="text-primary-50 mb-0.5">
+            <Text
+              textType="subtitle"
+              className="text-primary-50 mb-0.5 after:content-['*'] after:ml-1 after:text-red-600"
+            >
               Kata Sandi
             </Text>
             <div className="relative">
@@ -116,6 +132,34 @@ function LoginForm() {
               </button>
             </div>
           </label>
+          <label htmlFor="passwordConfirm" className="">
+            <Text
+              textType="subtitle"
+              className="text-primary-50 mb-0.5 after:content-['*'] after:ml-1 after:text-red-600"
+            >
+              Konfirmasi Kata Sandi
+            </Text>
+            <div className="relative">
+              <input
+                type={showPassword ? 'text' : 'password'}
+                name="passwordConfirm"
+                id="passwordConfirm"
+                placeholder="Ulangi Kata Sandi"
+                className="p-3 rounded-lg h-[42px] w-full border-[rgb(77,112,108,0.4)] font-medium font-sans focus:ring-primary-600 focus:border-primary-700"
+                onChange={handleConfirmPasswordChange}
+              />
+              <button
+                type="button"
+                className="absolute inset-y-0 right-2 flex items-center text-sm leading-5"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                <FontAwesomeIcon
+                  icon={showPassword ? faEyeSlash : faEye}
+                  className="text-gray-600 hover:text-gray-500 w-[22px] h-[15px]"
+                />
+              </button>
+            </div>
+          </label>
         </div>
         <div className="flex flex-col gap-1">
           <Link
@@ -123,15 +167,15 @@ function LoginForm() {
             onClick={handleLoginClick}
             className="w-[354px] rounded-3xl bg-primary-600 text-gray-50 flex justify-center items-center py-[10px] hover:bg-tertiary-600 active:bg-tertiary-800 active:scale-95 transition duration-300"
           >
-            Masuk
+            Buat Akun Baru
           </Link>
           <Text textType="caption" className="text-white self-center">
-            Belum punya akun?{' '}
+            Sudah punya akun?{' '}
             <Link
-              to="/register"
+              to="/login"
               className="text-Caption font-bold hover:underline"
             >
-              Daftar
+              Masuk
             </Link>
           </Text>
         </div>
@@ -140,4 +184,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default RegisterForm;
