@@ -63,7 +63,7 @@ function RegisterForm() {
       </Link>
       <div className="flex flex-col w-full px-[85px] gap-[30px]">
         <Text textType="h2Bold" className="text-white">
-          Masuk
+          Daftar
         </Text>
         <div
           id="login-form"
