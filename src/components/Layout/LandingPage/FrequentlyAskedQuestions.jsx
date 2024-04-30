@@ -78,7 +78,7 @@ function FrequentlyAskedQuestions() {
           </Accordion.Content>
         </Accordion.Panel>
       </Accordion>
-      <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl">
+      <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl active:scale-90">
         Bergabung Ke tukaRatik
       </button>
     </section>

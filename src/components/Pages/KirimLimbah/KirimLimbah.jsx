@@ -5,12 +5,14 @@ import HeroSection from '../../Layout/KirimLimbah/HeroSection';
 
 const KirimLimbah = () => {
   return (
-    <div className="bg-grey-50 mx-auto w-full">
+    <>
       <Navbar />
-      <HeroSection />
-      <Form />
+      <div className="flex flex-col items-center w-full pt-[59px]">
+        <HeroSection />
+        <Form />
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
