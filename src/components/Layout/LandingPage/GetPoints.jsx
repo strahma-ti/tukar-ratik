@@ -5,7 +5,7 @@ function GetPoints() {
         Dapatkan poin dengan menukarkan jenis limbah berikut
       </h1>
       <div className="flex gap-[55px]">
-        <div className="w-[247px] h-[350px] bg-primary-600 rounded-xl py-[30px] px-[17px] flex flex-col items-center justify-between group hover:shadow-500 hover:scale-105 transition duration-500">
+        <div className="w-[247px] h-[350px] bg-primary-600 rounded-xl py-[30px] px-[17px] flex flex-col items-center justify-between group hover:shadow-500 hover:scale-105 transition duration-500 active:scale-95 cursor-pointer">
           <h1 className="text-H3 font-bold text-gray-50">Daun & Tanaman</h1>
           <img
             src="images/LandingPage/getpoints-img1.png"
@@ -17,7 +17,7 @@ function GetPoints() {
             tanaman.
           </p>
         </div>
-        <div className="w-[247px] h-[350px] bg-primary-600 rounded-xl py-[30px] px-[17px] flex flex-col items-center justify-between group hover:shadow-500 hover:scale-105 transition duration-500">
+        <div className="w-[247px] h-[350px] bg-primary-600 rounded-xl py-[30px] px-[17px] flex flex-col items-center justify-between group hover:shadow-500 hover:scale-105 transition duration-500 active:scale-95 cursor-pointer">
           <h1 className="text-H3 font-bold text-gray-50">Sisa Makanan</h1>
           <img
             src="images/LandingPage/getpoints-img2.png"
@@ -29,7 +29,7 @@ function GetPoints() {
             dan buah, dan sisa makanan lainnya.
           </p>
         </div>
-        <div className="w-[247px] h-[350px] bg-primary-600 rounded-xl py-[30px] px-[17px] flex flex-col items-center justify-between group hover:shadow-500 hover:scale-105 transition duration-500">
+        <div className="w-[247px] h-[350px] bg-primary-600 rounded-xl py-[30px] px-[17px] flex flex-col items-center justify-between group hover:shadow-500 hover:scale-105 transition duration-500 active:scale-95 cursor-pointer">
           <h1 className="text-H3 font-bold text-gray-50">Kertas</h1>
           <img
             src="images/LandingPage/getpoints-img3.png"

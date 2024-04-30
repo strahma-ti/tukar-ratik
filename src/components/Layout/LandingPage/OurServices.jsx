@@ -44,7 +44,7 @@ function OurServices() {
               diproses di pusat pengolahan, poin akan diterima untuk digunakan
               pada tukar poin.
             </p>
-            <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl self-end">
+            <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl self-end active:scale-90">
               Kirim Limbah
             </button>
           </div>
@@ -73,7 +73,7 @@ function OurServices() {
               Dengan “Tukar Poin”, Anda ikut mendukung pertanian lokal dan
               peternak di sekitar kita.
             </p>
-            <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl">
+            <button className="text-Subtitle text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 size-fit px-10 py-[10px] rounded-3xl active:scale-90">
               Tukar Poin
             </button>
           </div>

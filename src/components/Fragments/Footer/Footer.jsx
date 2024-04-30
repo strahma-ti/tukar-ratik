@@ -7,6 +7,7 @@ import {
   faFacebook,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { NavLink } from "react-router-dom";
 
 function Footer() {
   return (
@@ -34,21 +35,21 @@ function Footer() {
             <h1 className="text-Title text-primary-700">Layanan Kami</h1>
             <div className="flex w-full gap-6">
               <div className="flex items-center gap-[10px] flex-row-reverse">
-                <a
-                  href="index"
+                <NavLink
+                  to="/kirimLimbah"
                   className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Kirim Limbah
-                </a>
+                </NavLink>
                 <div className="w-[2px] h-[8px] bg-primary-700 ml-[1px] peer-hover:bg-primary-800 peer-active:bg-primary-900"></div>
               </div>
               <div className="flex items-center gap-[10px] flex-row-reverse">
-                <a
-                  href="index"
+                <NavLink
+                  to="/tukarPoin"
                   className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Tukar Point
-                </a>
+                </NavLink>
                 <div className="w-[2px] h-[8px] bg-primary-700 ml-[1px] peer-hover:bg-primary-800 peer-active:bg-primary-900"></div>
               </div>
             </div>
