@@ -8,25 +8,19 @@ import {
 import { Text } from '../../Elements/Text/Text';
 import { Link } from 'react-router-dom';
 
-function LoginForm() {
+function LoginForm({ className, onClick, isLogin, value }) {
   const [showPassword, setShowPassword] = useState(false);
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLoginClick = () => {
-    let isError = false;
-
-    if (!isError) {
-      const data = {
-        fullname,
-        email,
-        password,
-      };
-      console.log(data.fullname);
-      console.log(data.email);
-      console.log(data.password);
-    }
+    const data = {
+      fullname,
+      email,
+      password,
+    };
+    console.log(data);
   };
 
   const handleFullnameChange = (e) => {
@@ -42,7 +36,9 @@ function LoginForm() {
   };
 
   return (
-    <div className="max-w-[586px] w-full bg-white/10 inset-0 backdrop-blur-[6px] flex flex-col pt-[37px] z-10 gap-[82px] px-[37px]">
+    <div
+      className={`max-w-[586px] w-full bg-white/10 inset-0 backdrop-blur-[6px] flex flex-col pt-[37px] z-10 gap-[82px] px-[37px] ${className}`}
+    >
       <Link to="/" className="w-full flex justify-between items-center">
         <FontAwesomeIcon
           icon={faArrowLeft}
@@ -127,12 +123,12 @@ function LoginForm() {
           </Link>
           <Text textType="caption" className="text-white self-center">
             Belum punya akun?{' '}
-            <Link
-              to="/register"
-              className="text-Caption font-bold hover:underline"
+            <button
+              onClick={onClick}
+              className="text-Caption font-bold underline hover:text-sky-400 active:text-sky-600"
             >
               Daftar
-            </Link>
+            </button>
           </Text>
         </div>
       </div>
