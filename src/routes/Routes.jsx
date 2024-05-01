@@ -16,6 +16,9 @@ const LoginPage = React.lazy(() =>
 const RegisterPage = React.lazy(() =>
   import('../components/Pages/AuthPage/RegisterPage')
 );
+const AuthPage = React.lazy(() =>
+  import('../components/Pages/AuthPage/AuthPage')
+);
 
 const ProjectRoutes = () => {
   return (
@@ -27,6 +30,7 @@ const ProjectRoutes = () => {
           <Route path="/tukarpoin" element={<TukarPoin />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
+          <Route path="/auth" element={<AuthPage />} />
         </Routes>
       </Router>
     </React.Suspense>

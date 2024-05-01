@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown } from 'flowbite-react';
+// import { Dropdown } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
@@ -26,7 +26,15 @@ function Navbar() {
           Tukar Poin
         </a>
       </div>
-      <Dropdown
+      <div className="flex items-center">
+        <Link
+          to="/auth"
+          className="ml-2 text-Subtitle font-bold text-primary-700 hover:text-primary-800"
+        >
+          Masuk
+        </Link>
+      </div>
+      {/* <Dropdown
         label={
           <div className="flex items-center">
             <span className="ml-2 text-Subtitle font-bold text-primary-700 hover:text-primary-800">
@@ -45,7 +53,7 @@ function Navbar() {
         <Link to="/register">
           <Dropdown.Item className="font-semibold">Register</Dropdown.Item>
         </Link>
-      </Dropdown>
+      </Dropdown> */}
     </nav>
   );
 }
