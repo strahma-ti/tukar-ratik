@@ -15,23 +15,23 @@ function AuthPage() {
   return (
     <div
       id="main-content"
-      className="max-w-[1550px] size-full bg-cover bg-top h-screen relative flex justify-center gap-[132px] overflow-hidden transition-all duration-1000 ease-linear"
+      className="max-w-[1550px] bg-cover bg-top h-screen w-screen relative flex justify-center gap-[132px] overflow-hidden transition-all duration-1000 ease-linear"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="absolute z-[1] size-full bg-gradient-to-b from-[rgb(61,83,80,0.6)] to-[#1F2C2A] opacity-60"></div>
       <LoginForm
         className={
           isLogin
-            ? 'absolute translate-x-[874px] transition-all duration-[1300ms] ease-linear'
-            : 'absolute -translate-x-[800px] transition-all duration-[1300ms] ease-linear'
+            ? 'absolute translate-x-[874px] transition-all duration-[1300ms] ease-linear opacity-100'
+            : 'absolute -translate-x-[100%] transition-all duration-[1300ms] ease-linear opacity-0'
         }
         onClick={handleClickChange}
       />
       <div
         className={
           isLogin
-            ? 'absolute -translate-x-[380px]  transition-all duration-[1300ms] ease-linear w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px]'
-            : 'absolute -translate-x-[2000px] transition-all duration-[1300ms] ease-linear w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px]'
+            ? 'absolute -translate-x-[380px]  transition-all duration-[1300ms] ease-linear w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px] opacity-100'
+            : 'absolute -translate-x-[350%] transition-all duration-[1300ms] ease-linear w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px] opacity-0'
         }
       >
         <Text className="text-xl font-normal ">Selamat Datang Kembali!</Text>
@@ -46,16 +46,16 @@ function AuthPage() {
       <RegisterForm
         className={
           isLogin
-            ? 'absolute translate-x-[3000px] transition-all duration-[1500ms] ease-linear'
-            : 'absolute translate-x-[154px] transition-all duration-[1500ms] ease-linear'
+            ? 'absolute translate-x-[3000px] transition-all duration-[1500ms] ease-linear opacity-0'
+            : 'absolute translate-x-[154px] transition-all duration-[1500ms] ease-linear opacity-100'
         }
         onClick={handleClickChange}
       />
       <div
         className={
           isLogin
-            ? 'absolute w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px] translate-x-[3000px] transition-all duration-[1500ms] ease-linear'
-            : 'absolute w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px] translate-x-[374px] transition-all duration-[1500ms] ease-linear'
+            ? 'absolute w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px] translate-x-[3000px] transition-all duration-[1500ms] ease-linear opacity-0'
+            : 'absolute w-[507px] z-10 text-gray-50 h-full flex flex-col justify-end pb-[232px] gap-[15px] translate-x-[374px] transition-all duration-[1500ms] ease-linear opacity-100'
         }
       >
         <Text className="text-xl font-normal ">Bergabung Dengan Kami,</Text>

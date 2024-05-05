@@ -95,7 +95,7 @@ function RegisterForm({ className, onClick }) {
               className="p-3 rounded-lg h-[42px] w-full border-[rgb(77,112,108,0.4)] font-medium font-sans focus:ring-primary-600 focus:border-primary-700 peer invalid:focus:ring-red-600 invalid:focus:border-red-700"
               onChange={handleEmailChange}
             />
-            <div className="text-white text-sm rounded-xl bg-red-600 w-fit py-[1px] px-2 mt-1 ml-0.5 hidden peer-invalid:block">
+            <div className="text-white text-sm rounded-xl bg-red-600 w-fit py-[1px] px-2 mt-1 ml-0.5 hidden peer-invalid:block select-none">
               Format email salah
             </div>
           </label>

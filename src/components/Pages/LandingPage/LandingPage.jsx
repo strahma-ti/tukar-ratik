@@ -1,10 +1,10 @@
-import Navbar from "../../Fragments/Navbar/Navbar";
-import Footer from "../../Fragments/Footer/Footer";
-import Jumbotron from "../../Layout/LandingPage/Jumbotron";
-import UrgencyLimbah from "../../Layout/LandingPage/UrgencyLimbah";
-import OurServices from "../../Layout/LandingPage/OurServices";
-import GetPoints from "../../Layout/LandingPage/GetPoints";
-import FrequentlyAskedQuestions from "../../Layout/LandingPage/FrequentlyAskedQuestions";
+import Navbar from '../../Fragments/Navbar/Navbar';
+import Footer from '../../Fragments/Footer/Footer';
+import Jumbotron from '../../Layout/LandingPage/Jumbotron';
+import UrgencyLimbah from '../../Layout/LandingPage/UrgencyLimbah';
+import OurServices from '../../Layout/LandingPage/OurServices';
+import GetPoints from '../../Layout/LandingPage/GetPoints';
+import FrequentlyAskedQuestions from '../../Layout/LandingPage/FrequentlyAskedQuestions';
 
 function LandingPage() {
   return (
