@@ -1,5 +1,3 @@
-//rahh background heronyaa ku ganti lahh soalnya tepotong tu dari figma, trus kubikin ke tengahh.. klo kam sudah baca ini hapus ja komennya hehe
-
 const HeroSection = () => {
   const bgImage = 'images/KirimLimbah/hero-kirimlimbah.png';
 
