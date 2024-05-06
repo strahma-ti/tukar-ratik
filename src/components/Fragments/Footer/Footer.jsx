@@ -37,7 +37,7 @@ function Footer() {
               <div className="flex items-center gap-[10px] flex-row-reverse">
                 <NavLink
                   to="/kirimLimbah"
-                  className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
+                  className="font-bold text-Subtitle text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Kirim Limbah
                 </NavLink>
@@ -46,7 +46,7 @@ function Footer() {
               <div className="flex items-center gap-[10px] flex-row-reverse">
                 <NavLink
                   to="/tukarPoin"
-                  className="text-Subtitle font-bold text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
+                  className="font-bold text-Subtitle text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Tukar Poin
                 </NavLink>
@@ -56,8 +56,8 @@ function Footer() {
           </div>
           <div className="flex flex-col gap-[7px] items-start">
             <h1 className="text-Title text-primary-700">Kantor Pusat</h1>
-            <div className="text-left flex flex-col gap-1">
-              <p className="text-Subtitle font-bold text-primary-700">
+            <div className="flex flex-col gap-1 text-left">
+              <p className="font-bold text-Subtitle text-primary-700">
                 Buka Setiap Selasa - Minggu 09:00 - 17:30 WITA
               </p>
               <p className="text-Subtitle text-primary-700 text-pretty">
