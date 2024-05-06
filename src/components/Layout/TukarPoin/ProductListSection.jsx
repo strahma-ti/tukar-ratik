@@ -13,7 +13,7 @@ const ProductItem = ({ productImg, bodyValue }) => {
         />
       </div>
       <div id="item-body" className="z-10 flex flex-col gap-1 text-gray-50">
-        <Text textType="subtitleBold">{bodyValue.price}</Text>
+        <Text textType="subtitleBold">{bodyValue.price} poin</Text>
         <Text textType="subtitle" className="text-pretty">
           {bodyValue.productName}
         </Text>
@@ -28,7 +28,7 @@ const ProductItem = ({ productImg, bodyValue }) => {
   );
 };
 
-function ProductListSection({ searchTerm }) {
+function ProductListSection({ searchTerm, sortOrder }) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -36,7 +36,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item1.png',
         bodyValue: {
-          price: '100 poin',
+          price: 100,
           productName: 'Tomat Segar dari Aluh-aluh',
           weight: '250 gram',
         },
@@ -44,7 +44,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item2.png',
         bodyValue: {
-          price: '700 poin',
+          price: 700,
           productName: 'Kacang Panjang Varian Sangat Panjang',
           weight: '250 gram',
         },
@@ -52,7 +52,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item3.png',
         bodyValue: {
-          price: '1600 poin',
+          price: 1600,
           productName: 'Telur Ayam Kampung Super',
           weight: '5 butir',
         },
@@ -60,7 +60,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item4.png',
         bodyValue: {
-          price: '1800 poin',
+          price: 1800,
           productName: 'Telur Ayam Ras Amuntai',
           weight: '500 gram',
         },
@@ -68,7 +68,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item5.png',
         bodyValue: {
-          price: '100 poin',
+          price: 100,
           productName: 'Rawit Merah Pedas Dower',
           weight: '250 gram',
         },
@@ -76,7 +76,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item6.png',
         bodyValue: {
-          price: '700 poin',
+          price: 700,
           productName: 'Telur Bebek Asli Alabio',
           weight: '250 gram',
         },
@@ -84,7 +84,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item7.png',
         bodyValue: {
-          price: '100 poin',
+          price: 100,
           productName: 'Timun Segar Anti Pahit',
           weight: '250 gram',
         },
@@ -92,7 +92,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item8.png',
         bodyValue: {
-          price: '100 poin',
+          price: 100,
           productName: 'Jagung Besar Manis',
           weight: '250 gram',
         },
@@ -100,7 +100,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item9.png',
         bodyValue: {
-          price: '100 poin',
+          price: 100,
           productName: 'Labu Oranye Ukuran Perpotong',
           weight: '250 gram',
         },
@@ -108,7 +108,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item10.png',
         bodyValue: {
-          price: '700 poin',
+          price: 700,
           productName: 'Daun Seledri Segar Wangi',
           weight: '250 gram',
         },
@@ -116,7 +116,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item11.png',
         bodyValue: {
-          price: '1000 poin',
+          price: 1000,
           productName: 'Terong Ungu Segar Tidak Layu',
           weight: '250 gram',
         },
@@ -124,7 +124,7 @@ function ProductListSection({ searchTerm }) {
       {
         productImg: '/images/TukarPoin/product-item12.png',
         bodyValue: {
-          price: '100 poin',
+          price: 100,
           productName: 'Jeruk Nipis Ukuran Besar',
           weight: '250 gram',
         },
@@ -140,7 +140,16 @@ function ProductListSection({ searchTerm }) {
       .includes(searchTerm ? searchTerm.toLowerCase() : '')
   );
 
-  if (filteredData.length === 0) {
+  const sortedData = filteredData.sort((a, b) => {
+    if (sortOrder === 'asc') {
+      return a.bodyValue.price - b.bodyValue.price;
+    } else if (sortOrder === 'desc') {
+      return b.bodyValue.price - a.bodyValue.price;
+    }
+    return 0;
+  });
+
+  if (sortedData.length === 0) {
     return (
       <>
         <div
@@ -172,7 +181,7 @@ function ProductListSection({ searchTerm }) {
 
   return (
     <div id="product-list" className="grid grid-cols-4 gap-[47px]">
-      {filteredData.map((item, index) => (
+      {sortedData.map((item, index) => (
         <ProductItem
           key={index}
           productImg={item.productImg}
