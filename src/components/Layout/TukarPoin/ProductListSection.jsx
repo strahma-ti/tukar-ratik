@@ -1,109 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Text } from '../../Elements/Text/Text';
-
-const data = [
-  {
-    productImg: '/images/TukarPoin/product-item1.png',
-    bodyValue: {
-      price: '100 poin',
-      productName: 'Tomat Segar dari Aluh-aluh',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item2.png',
-    bodyValue: {
-      price: '700 poin',
-      productName: 'Kacang Panjang Varian Sangat Panjang',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item3.png',
-    bodyValue: {
-      price: '1600 poin',
-      productName: 'Telur Ayam Kampung Super',
-      weight: '5 butir',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item4.png',
-    bodyValue: {
-      price: '1800 poin',
-      productName: 'Telur Ayam Ras Amuntai',
-      weight: '500 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item5.png',
-    bodyValue: {
-      price: '100 poin',
-      productName: 'Rawit Merah Pedas Dower',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item6.png',
-    bodyValue: {
-      price: '700 poin',
-      productName: 'Telur Bebek Asli Alabio',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item7.png',
-    bodyValue: {
-      price: '100 poin',
-      productName: 'Timun Segar Anti Pahit',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item8.png',
-    bodyValue: {
-      price: '100 poin',
-      productName: 'Jagung Besar Manis',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item9.png',
-    bodyValue: {
-      price: '100 poin',
-      productName: 'Labu Oranye Ukuran Perpotong',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item10.png',
-    bodyValue: {
-      price: '700 poin',
-      productName: 'Daun Seledri Segar Wangi',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item11.png',
-    bodyValue: {
-      price: '1000 poin',
-      productName: 'Terong Ungu Segar Tidak Layu',
-      weight: '250 gram',
-    },
-  },
-  {
-    productImg: '/images/TukarPoin/product-item12.png',
-    bodyValue: {
-      price: '100 poin',
-      productName: 'Jeruk Nipis Ukuran Besar',
-      weight: '250 gram',
-    },
-  },
-];
 
 const ProductItem = ({ productImg, bodyValue }) => {
   return (
     <div className="w-[182px] h-[241px] rounded-xl bg-black px-[14px] pb-[10px] flex flex-col justify-end relative overflow-hidden cursor-pointer group hover:scale-105 transition-all duration-500">
-      <div className="size-full bg-gradient-to-t from-[#111010] to-white/30 absolute inset-0 z-[1] opacity-50 rounded-xl"></div>
+      <div className="size-full bg-gradient-to-t from-[#000000] to-white/30 absolute inset-0 z-[1] opacity-70 rounded-xl"></div>
       <div className="absolute inset-0 overflow-hidden rounded-xl">
         <img
           src={productImg}
@@ -127,10 +28,151 @@ const ProductItem = ({ productImg, bodyValue }) => {
   );
 };
 
-function ProductListSection() {
+function ProductListSection({ searchTerm }) {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const dataProduct = [
+      {
+        productImg: '/images/TukarPoin/product-item1.png',
+        bodyValue: {
+          price: '100 poin',
+          productName: 'Tomat Segar dari Aluh-aluh',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item2.png',
+        bodyValue: {
+          price: '700 poin',
+          productName: 'Kacang Panjang Varian Sangat Panjang',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item3.png',
+        bodyValue: {
+          price: '1600 poin',
+          productName: 'Telur Ayam Kampung Super',
+          weight: '5 butir',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item4.png',
+        bodyValue: {
+          price: '1800 poin',
+          productName: 'Telur Ayam Ras Amuntai',
+          weight: '500 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item5.png',
+        bodyValue: {
+          price: '100 poin',
+          productName: 'Rawit Merah Pedas Dower',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item6.png',
+        bodyValue: {
+          price: '700 poin',
+          productName: 'Telur Bebek Asli Alabio',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item7.png',
+        bodyValue: {
+          price: '100 poin',
+          productName: 'Timun Segar Anti Pahit',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item8.png',
+        bodyValue: {
+          price: '100 poin',
+          productName: 'Jagung Besar Manis',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item9.png',
+        bodyValue: {
+          price: '100 poin',
+          productName: 'Labu Oranye Ukuran Perpotong',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item10.png',
+        bodyValue: {
+          price: '700 poin',
+          productName: 'Daun Seledri Segar Wangi',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item11.png',
+        bodyValue: {
+          price: '1000 poin',
+          productName: 'Terong Ungu Segar Tidak Layu',
+          weight: '250 gram',
+        },
+      },
+      {
+        productImg: '/images/TukarPoin/product-item12.png',
+        bodyValue: {
+          price: '100 poin',
+          productName: 'Jeruk Nipis Ukuran Besar',
+          weight: '250 gram',
+        },
+      },
+    ];
+
+    setData(dataProduct);
+  }, []);
+
+  const filteredData = data.filter((item) =>
+    item.bodyValue.productName
+      .toLowerCase()
+      .includes(searchTerm ? searchTerm.toLowerCase() : '')
+  );
+
+  if (filteredData.length === 0) {
+    return (
+      <>
+        <div
+          id="product-list"
+          className="text-2xl text-center text-tertiary-900"
+        >
+          <h1 className="mb-[50px] font-semibold">
+            Mohon maaf, kami tidak dapat menemukan apa yang Anda cari.
+          </h1>
+          <h1 className="font-medium">
+            Mungkin Anda tertarik dengan produk-produk berikut:
+          </h1>
+        </div>
+        <div className="grid grid-cols-4 gap-[47px] mt-2">
+          {data
+            .sort(() => 0.5 - Math.random())
+            .slice(0, 4)
+            .map((item, index) => (
+              <ProductItem
+                key={index}
+                productImg={item.productImg}
+                bodyValue={item.bodyValue}
+              />
+            ))}
+        </div>
+      </>
+    );
+  }
+
   return (
     <div id="product-list" className="grid grid-cols-4 gap-[47px]">
-      {data.map((item, index) => (
+      {filteredData.map((item, index) => (
         <ProductItem
           key={index}
           productImg={item.productImg}
