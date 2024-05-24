@@ -15,15 +15,41 @@ function RegisterForm({ className, onClick }) {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegisterClick = () => {
+  const handleRegisterClick = async () => {
+    if (password !== confirmPassword) {
+        alert('Passwords do not match');
+        return;
+    }
+
     const registerData = {
-      fullname,
-      email,
-      password,
-      confirmPassword,
+        username: fullname,
+        email,
+        password,
     };
-    console.log(registerData);
-  };
+
+    try {
+        const response = await fetch('http://localhost:4000/api/users', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(registerData),
+        });
+
+        const result = await response.json(); // Tambahkan ini untuk melihat respon dari backend
+
+        if (response.ok) {
+            console.log('User registered successfully:', result);
+            // Redirect to login page or show success message
+        } else {
+            console.error('Registration error:', result);
+            alert(`Error: ${result.message}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error: Unable to register. Please try again later.');
+    }
+};
 
   const handleFullnameChange = (e) => {
     setFullname(e.target.value);
