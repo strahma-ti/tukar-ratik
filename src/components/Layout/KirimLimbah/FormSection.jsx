@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCircleExclamation,
   faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+} from '@fortawesome/free-solid-svg-icons';
 
 const Form = () => {
   const lokasiPenukaranOptionsList = [
-    { label: "Lokasi 1", value: "lokasi1" },
-    { label: "Lokasi 2", value: "lokasi2" },
-    { label: "Lokasi 3", value: "lokasi3" },
+    { label: 'Lokasi 1', value: 'lokasi1' },
+    { label: 'Lokasi 2', value: 'lokasi2' },
+    { label: 'Lokasi 3', value: 'lokasi3' },
   ];
 
-  const wasteTypeOptionsList = [
-    { label: "Plastik", value: "plastik" },
-    { label: "Kertas", value: "kertas" },
-    { label: "Logam", value: "logam" },
-  ];
+  // const wasteTypeOptionsList = [
+  //   { label: 'Plastik', value: 'plastik' },
+  //   { label: 'Kertas', value: 'kertas' },
+  //   { label: 'Logam', value: 'logam' },
+  // ];
   const [imagePreview, setImagePreview] = useState(null);
   const [imageSelected, setImageSelected] = useState(false);
 
@@ -33,30 +33,30 @@ const Form = () => {
     }
   };
 
-  const [lokasiPenukaran, setLokasiPenukaran] = useState("");
-  const [selectedWasteTypes, setSelectedWasteTypes] = useState([]);
+  const [lokasiPenukaran, setLokasiPenukaran] = useState('');
+  // const [selectedWasteTypes, setSelectedWasteTypes] = useState([]);
 
   const handleLokasiPenukaranChange = (e) => {
     setLokasiPenukaran(e.target.value);
   };
 
-  const handleWasteTypeChange = (e) => {
-    const selectedOptions = Array.from(
-      e.target.selectedOptions,
-      (option) => option.value
-    );
-    setSelectedWasteTypes(selectedOptions);
-  };
+  // const handleWasteTypeChange = (e) => {
+  //   const selectedOptions = Array.from(
+  //     e.target.selectedOptions,
+  //     (option) => option.value
+  //   );
+  //   setSelectedWasteTypes(selectedOptions);
+  // };
 
   return (
     <div className="px-[200px] pt-[75px] text-grey-800 flex flex-col items-center gap-[65px]">
-      <div className="text-primary-800 text-H2 font-bold">
+      <div className="font-bold text-primary-800 text-H2">
         <span>Form Keterangan Limbah</span>
       </div>
       <div className="flex justify-between gap-[8em]">
         <div className="pr-4 w-[669px]">
           <div className="mb-4">
-            <label className="block mb-1 font-medium">
+            <label className="block mb-1 font-medium text-[15px] text-[#585858]">
               Lokasi Penerima Limbah
             </label>
             <select
@@ -78,67 +78,102 @@ const Form = () => {
           </div>
 
           <div className="mb-4">
-            <label htmlFor="address" className="block mb-1 font-medium">
+            <label
+              htmlFor="address"
+              className="block mb-1 font-medium text-[15px] text-[#585858]"
+            >
               Alamat Lengkap
             </label>
-            <textarea
+            <input
               id="address"
               name="address"
-              className="overflow-hidden w-full px-4 py-2 h-10 border rounded-lg border-tertiary-700/50 outline-tertiary-600/60 text-Subtitle"
+              className="w-full h-10 px-4 py-2 overflow-hidden border rounded-lg border-tertiary-700/50 outline-tertiary-600/60 text-Subtitle"
               rows="3"
               placeholder="Isi alamat lengkap disini ..."
-            ></textarea>
+              autoComplete="off"
+            />
           </div>
 
           <div className="mb-4">
-            <label htmlFor="amount" className="block mb-1 font-medium">
+            <label
+              htmlFor="amount"
+              className="block mb-1 font-medium text-[15px] text-[#585858]"
+            >
               Jumlah Limbah
             </label>
-            <textarea
+            <input
               id="amount"
               name="amount"
-              className="flex flex-col items-start overflow-hidden w-full px-4 py-2 h-10 border rounded-lg border-tertiary-700/50 outline-tertiary-600/60 text-Subtitle"
+              className="flex flex-col items-start w-full h-10 px-4 py-2 overflow-hidden border rounded-lg border-tertiary-700/50 outline-tertiary-600/60 text-Subtitle"
               rows="3"
               placeholder="Jumlah /kg ..."
-            ></textarea>
-            <span className="flex items-center gap-[5px] text-xs text-gray-500">
-              {" "}
+              autoComplete="off"
+            />
+            <span className="flex items-center gap-[5px] text-xs text-gray-500 mt-2">
+              {' '}
               <FontAwesomeIcon icon={faCircleExclamation} />
-              Minimum penukaran adalah 0.5 kg
+              Minimum penukaran adalah 1 kg
             </span>
           </div>
 
-          <div className="mb-4">
-            <label className="block mb-1 font-medium">
+          <div className="flex flex-col gap-2 mb-4">
+            <h1 className="font-medium text-[15px] text-[#585858]">
               Opsi Limbah Yang Dikirim
-            </label>
-            <select
-              id="wasteType"
-              name="wasteType"
-              className="flex flex-col items-start w-full px-4 py-2 border rounded-lg border-tertiary-700/50 outline-tertiary-600/60 text-Subtitle"
-              // multiple
-              value={selectedWasteTypes}
-              onChange={handleWasteTypeChange}
-            >
-              <option value="" disabled selected>
-                Pilih Jenis Limbah yang Ditukar
-              </option>
-              {wasteTypeOptionsList.map((option) => (
-                <option key={option.value} value={option.value}>
-                  {option.label}
-                </option>
-              ))}
-            </select>
-            <span className="flex items-center gap-[5px] text-xs text-gray-500">
-              <FontAwesomeIcon icon={faCircleExclamation} /> Hanya limbah
-              organik
-            </span>
+            </h1>
+            <div className="flex flex-col gap-2">
+              <div className="flex items-center gap-3">
+                <input
+                  id="sisa-makanan"
+                  type="radio"
+                  name="radio-5"
+                  className="radio radio-success size-[21px]"
+                  defaultChecked
+                />
+                <label
+                  htmlFor="sisa-makanan"
+                  className="transition-all duration-75 cursor-pointer text-Subtitle text-neutral-900"
+                >
+                  Sisa Makanan
+                </label>
+              </div>
+              <div className="flex items-center gap-3">
+                <input
+                  id="daun"
+                  type="radio"
+                  name="radio-5"
+                  className="radio radio-success size-[21px]"
+                />
+                <label
+                  htmlFor="daun"
+                  className="transition-all duration-75 cursor-pointer text-Subtitle text-neutral-900"
+                >
+                  Dedaunan dan tanaman
+                </label>
+              </div>
+              <div className="flex items-center gap-3">
+                <input
+                  id="kertas"
+                  type="radio"
+                  name="radio-5"
+                  className="radio radio-success size-[21px]"
+                />
+                <label
+                  htmlFor="kertas"
+                  className="transition-all duration-75 cursor-pointer text-Subtitle text-neutral-900"
+                >
+                  Limbah Kertas
+                </label>
+              </div>
+            </div>
           </div>
         </div>
         <div className="w-1/3 pl-4">
           <div className="mb-4 flex flex-col items-center grid-gap: 0.5em w-max-conten">
-            <label htmlFor="file" className="block mb-1 font-medium">
-              Upload File
+            <label
+              htmlFor="file"
+              className="block mb-1 font-medium text-[15px] text-[#585858]"
+            >
+              Gambar Limbah Organik
             </label>
             <input
               type="file"
@@ -152,7 +187,7 @@ const Form = () => {
                 src={imagePreview}
                 alt="Preview"
                 className="mt-2 rounded-md"
-                style={{ maxWidth: "100%" }}
+                style={{ maxWidth: '100%' }}
               />
             )}
             <label
@@ -161,7 +196,7 @@ const Form = () => {
             >
               Masukkan File Gambar
             </label>
-            <span className="flex items-center gap-[5px] text-xs text-gray-500">
+            <span className="flex items-center gap-[5px] text-xs text-gray-500 mt-2">
               <FontAwesomeIcon icon={faCircleExclamation} /> Ukuran Gambar
               Maksimal 5 MB
             </span>
@@ -172,7 +207,7 @@ const Form = () => {
                 src={imagePreview}
                 alt="Preview"
                 className="mt-2 rounded-md"
-                style={{ maxWidth: "100px" }}
+                style={{ maxWidth: '100px' }}
               />
               <button
                 className="text-red-500 hover:text-red-700"
@@ -187,16 +222,9 @@ const Form = () => {
           )}
         </div>
       </div>
-      <div className="button">
-        <Link to="/halaman-tujuan">
-          <label
-            htmlFor="submit"
-            className="flex justify-center w-[800px] px-4 py-[5px] cursor-pointer text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 rounded-full"
-          >
-            Tukar Ratik
-          </label>
-        </Link>
-      </div>
+      <button className="flex items-center justify-center w-[833px] h-[38px] cursor-pointer text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 rounded-full">
+        Tukar Ratik
+      </button>
     </div>
   );
 };
