@@ -8,7 +8,7 @@ const DetailProdukPage = () => {
   return (
     <>
       <Navbar />
-      <main className="w-full mt-[44px] mb-[108px] flex flex-col items-center">
+      <main className="w-full mt-[44px] mb-[108px] flex flex-col items-center gap-8">
         <HeaderKeranjangSection />
         <ProductContentSection />
       </main>

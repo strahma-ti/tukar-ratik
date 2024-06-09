@@ -25,6 +25,9 @@ const CekAdminPage = React.lazy(() =>
 const DetailProdukPage = React.lazy(() =>
   import('../components/Pages/DetailProdukPage/DetailProdukPage')
 );
+const KeranjangPage = React.lazy(() =>
+  import('../components/Pages/KeranjangPage/KeranjangPage')
+);
 
 const ProjectRoutes = () => {
   return (
@@ -39,6 +42,7 @@ const ProjectRoutes = () => {
           <Route path="/auth" element={<AuthPage />} />
           <Route path="/cek-admin" element={<CekAdminPage />} />
           <Route path="/produk" element={<DetailProdukPage />} />
+          <Route path="/keranjang" element={<KeranjangPage />} />
         </Routes>
       </Router>
     </React.Suspense>
