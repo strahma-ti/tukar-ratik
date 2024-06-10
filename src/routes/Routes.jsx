@@ -28,6 +28,15 @@ const DetailProdukPage = React.lazy(() =>
 const KeranjangPage = React.lazy(() =>
   import('../components/Pages/KeranjangPage/KeranjangPage')
 );
+const CheckoutPage = React.lazy(() =>
+  import('../components/Pages/CheckoutPage/CheckoutPage')
+);
+const RiwayatKirimLimbahPage = React.lazy(() =>
+  import('../components/Pages/RiwayatPage/RiwayatKirimLimbahPage')
+);
+const RiwayatTukarPoinPage = React.lazy(() =>
+  import('../components/Pages/RiwayatPage/RiwayatTukarPoinPage')
+);
 
 const ProjectRoutes = () => {
   return (
@@ -43,6 +52,15 @@ const ProjectRoutes = () => {
           <Route path="/cek-admin" element={<CekAdminPage />} />
           <Route path="/produk" element={<DetailProdukPage />} />
           <Route path="/keranjang" element={<KeranjangPage />} />
+          <Route path="/checkout" element={<CheckoutPage />} />
+          <Route
+            path="/riwayat-kirim-limbah"
+            element={<RiwayatKirimLimbahPage />}
+          />
+          <Route
+            path="/riwayat-tukar-poin"
+            element={<RiwayatTukarPoinPage />}
+          />
         </Routes>
       </Router>
     </React.Suspense>

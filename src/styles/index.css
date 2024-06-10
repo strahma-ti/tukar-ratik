@@ -21,3 +21,12 @@ code {
     @apply size-[30px] px-[5px] hover:text-tertiary-800 active:text-tertiary-900;
   }
 }
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
