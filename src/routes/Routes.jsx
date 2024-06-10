@@ -34,6 +34,9 @@ const CheckoutPage = React.lazy(() =>
 const RiwayatKirimLimbahPage = React.lazy(() =>
   import('../components/Pages/RiwayatPage/RiwayatKirimLimbahPage')
 );
+const RiwayatTukarPoinPage = React.lazy(() =>
+  import('../components/Pages/RiwayatPage/RiwayatTukarPoinPage')
+);
 
 const ProjectRoutes = () => {
   return (
@@ -50,7 +53,14 @@ const ProjectRoutes = () => {
           <Route path="/produk" element={<DetailProdukPage />} />
           <Route path="/keranjang" element={<KeranjangPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
-          <Route path="/riwayat" element={<RiwayatKirimLimbahPage />} />
+          <Route
+            path="/riwayat-kirim-limbah"
+            element={<RiwayatKirimLimbahPage />}
+          />
+          <Route
+            path="/riwayat-tukar-poin"
+            element={<RiwayatTukarPoinPage />}
+          />
         </Routes>
       </Router>
     </React.Suspense>

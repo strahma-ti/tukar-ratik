@@ -3,16 +3,16 @@ import { useNavigate } from 'react-router-dom';
 
 const RiwayatItem = ({ status }) => {
   const Status = (status) => {
-    if (status === 'menunggu') {
+    if (status === 'dikemas') {
       return (
         <div className="w-[153px] h-[42px] rounded-xl flex items-center justify-center bg-[#D8E9AC] text-[#2E3F02] text-Subtitle">
-          Menunggu
+          Dikemas
         </div>
       );
-    } else if (status === 'menjemput') {
+    } else if (status === 'diantar') {
       return (
         <div className="w-[153px] h-[42px] rounded-xl flex items-center justify-center bg-primary-200 text-primary-800 text-Subtitle">
-          Menjemput
+          Diantar
         </div>
       );
     } else if (status === 'selesai') {
@@ -47,11 +47,14 @@ const RiwayatItem = ({ status }) => {
       </div>
       <div className="w-[271px] text-neutral-800 text-Subtitle text-nowrap flex flex-col items-center px-4">
         <h1 className="w-full overflow-hidden truncate">
-          Sisa makanan, Dedaunan, Limbah Kertas
+          Tomat Segar Aluh-aluh, Timun Segar Anti Pahit, Jeruk Limau So Fresh So
+          Clean
         </h1>
       </div>
       <div className="w-[220px] text-neutral-800 text-Subtitle text-nowrap flex flex-col items-center px-4">
-        <h1 className="w-full overflow-hidden text-center">7000</h1>
+        <h1 className="w-full overflow-hidden text-[#AA4338] text-center">
+          -300
+        </h1>
       </div>
       <div className="w-[345px] flex flex-col pl-[60px]">{Status(status)}</div>
     </div>
@@ -69,13 +72,13 @@ const BodySection = () => {
       >
         <div
           onClick={() => navigate('/riwayat-kirim-limbah')}
-          className="w-[582px] h-fit p-4 bg-primary-600 text-neutral-50 rounded-[24px] flex items-center justify-center active:scale-95 transition-all duration-200 cursor-pointer"
+          className="w-[582px] h-fit p-4 bg-neutral-100 text-neutral-700 rounded-[24px] flex items-center justify-center active:scale-95 transition-all duration-200 cursor-pointer"
         >
           Pengiriman Limbah
         </div>
         <div
           onClick={() => navigate('/riwayat-tukar-poin')}
-          className="w-[582px] h-fit p-4 bg-neutral-100 text-neutral-700 rounded-[24px] flex items-center justify-center active:scale-95 transition-all duration-200 cursor-pointer"
+          className="w-[582px] h-fit p-4 bg-primary-600 text-neutral-50 rounded-[24px] flex items-center justify-center active:scale-95 transition-all duration-200 cursor-pointer"
         >
           Penukaran Poin
         </div>
@@ -89,10 +92,10 @@ const BodySection = () => {
             Keterangan
           </div>
           <div className="w-[333px] text-primary-700 text-Title font-bold flex justify-center">
-            Jenis Limbah
+            Produk
           </div>
           <div className="w-[144px] text-primary-700 text-Title font-bold flex justify-center">
-            Poin Diperoleh
+            Poin Ditukar
           </div>
           <div className="w-[333px] text-primary-700 text-Title font-bold flex justify-center">
             Status
@@ -102,9 +105,9 @@ const BodySection = () => {
           id="riwayat-list"
           className="flex flex-col items-center w-full gap-4 mt-6"
         >
-          <RiwayatItem status={'menunggu'} />
+          <RiwayatItem status={'dikemas'} />
           <RiwayatItem status={'selesai'} />
-          <RiwayatItem status={'menjemput'} />
+          <RiwayatItem status={'diantar'} />
           <RiwayatItem status={'gagal'} />
         </div>
       </div>

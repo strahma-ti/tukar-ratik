@@ -39,10 +39,10 @@ function LoginForm({ className, onClick, isLogin, value }) {
     <div
       className={`max-w-[586px] w-full bg-white/10 inset-0 backdrop-blur-[6px] flex flex-col pt-[37px] z-10 gap-[82px] px-[37px] ${className}`}
     >
-      <Link to="/" className="w-full flex justify-between items-center">
+      <Link to="/" className="flex items-center justify-between w-full">
         <FontAwesomeIcon
           icon={faArrowLeft}
-          className="text-primary-800 size-6 active:scale-90 cursor-pointer"
+          className="cursor-pointer text-primary-800 size-6 active:scale-90"
         />
         <img
           src="images/app-logo-m.png"
@@ -58,19 +58,6 @@ function LoginForm({ className, onClick, isLogin, value }) {
           id="login-form"
           className="flex flex-col px-[5px] gap-[10px] w-[354px]"
         >
-          <label htmlFor="fullname" className="">
-            <Text textType="subtitle" className="text-primary-50 mb-0.5">
-              Nama Lengkap
-            </Text>
-            <input
-              type="text"
-              name="fullname"
-              id="fullname"
-              placeholder="Nama Lengkap"
-              className="p-3 rounded-lg h-[42px] w-full border-[rgb(77,112,108,0.4)] font-medium font-sans focus:ring-primary-600 focus:border-primary-700"
-              onChange={handleFullnameChange}
-            />
-          </label>
           <label htmlFor="email" className="">
             <Text textType="subtitle" className="text-primary-50 mb-0.5">
               Email
@@ -102,7 +89,7 @@ function LoginForm({ className, onClick, isLogin, value }) {
               />
               <button
                 type="button"
-                className="absolute inset-y-0 right-2 flex items-center text-sm leading-5"
+                className="absolute inset-y-0 flex items-center text-sm leading-5 right-2"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 <FontAwesomeIcon
@@ -121,11 +108,11 @@ function LoginForm({ className, onClick, isLogin, value }) {
           >
             Masuk
           </Link>
-          <Text textType="caption" className="text-white self-center">
+          <Text textType="caption" className="self-center text-white">
             Belum punya akun?{' '}
             <button
               onClick={onClick}
-              className="text-Caption font-bold underline hover:text-sky-400 active:text-sky-600"
+              className="font-bold underline text-Caption hover:text-sky-400 active:text-sky-600"
             >
               Daftar
             </button>
