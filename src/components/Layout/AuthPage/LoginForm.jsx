@@ -10,21 +10,15 @@ import { Link } from 'react-router-dom';
 
 function LoginForm({ className, onClick, isLogin, value }) {
   const [showPassword, setShowPassword] = useState(false);
-  const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
   const handleLoginClick = () => {
     const data = {
-      fullname,
       email,
       password,
     };
     console.log(data);
-  };
-
-  const handleFullnameChange = (e) => {
-    setFullname(e.target.value);
   };
 
   const handleEmailChange = (e) => {
