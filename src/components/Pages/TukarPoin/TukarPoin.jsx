@@ -7,9 +7,14 @@ import Footer from '../../Fragments/Footer/Footer';
 
 function TukarPoin() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [sortOrder, setSortOrder] = useState('asc');
 
   const handleSearch = (term) => {
     setSearchTerm(term);
+  };
+
+  const handleSort = (order) => {
+    setSortOrder((prevOrder) => (prevOrder === 'asc' ? 'desc' : 'asc')); // Mengubah urutan sort setiap kali fungsi dipanggil
   };
 
   return (
@@ -21,8 +26,12 @@ function TukarPoin() {
       >
         <HeroSection />
         <div className="mt-[85px] flex flex-col">
-          <SearchProductSection onSearch={handleSearch} className="mb-[50px]" />
-          <ProductListSection searchTerm={searchTerm} />
+          <SearchProductSection
+            onSearch={handleSearch}
+            onSort={handleSort}
+            className="mb-[50px]"
+          />
+          <ProductListSection searchTerm={searchTerm} sortOrder={sortOrder} />
         </div>
       </div>
       <Footer />
