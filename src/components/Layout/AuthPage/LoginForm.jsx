@@ -6,19 +6,58 @@ import {
   faEye,
 } from '@fortawesome/free-solid-svg-icons';
 import { Text } from '../../Elements/Text/Text';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import axios from 'axios';
+const apiUrl = process.env.REACT_APP_API_URL;
 
-function LoginForm({ className, onClick, isLogin, value }) {
+function LoginForm({ className, onClick, handleLoginState, setLoginState }) {
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLoginClick = () => {
-    const data = {
-      email,
-      password,
-    };
-    console.log(data);
+  const login = async (e) => {
+    e.preventDefault();
+    let isError = false;
+    const errors = [];
+
+    if (!email.trim()) {
+      isError = true;
+      errors.push('Masukkan email anda!');
+    }
+
+    if (!password.trim()) {
+      isError = true;
+      errors.push('Masukkan kata sandi anda!');
+    }
+
+    if (errors.length > 0) {
+      isError = true;
+      // eslint-disable-next-line array-callback-return
+      errors.reverse().map((error) => {
+        Swal.fire(error, '', 'error');
+      });
+    }
+
+    if (!isError) {
+      try {
+        const response = await axios.post(`${apiUrl}/users/login`, {
+          email: email,
+          password: password,
+        });
+        localStorage.setItem('email', response.data.user.email);
+        localStorage.setItem('userId', response.data.user.id);
+        setLoginState(true);
+        handleLoginState();
+        navigate('/tukarpoin');
+      } catch (error) {
+        if (error.response) {
+          Swal.fire(`${error.response.data}!`, '', 'error');
+        }
+      }
+    }
   };
 
   const handleEmailChange = (e) => {
@@ -57,6 +96,7 @@ function LoginForm({ className, onClick, isLogin, value }) {
               Email
             </Text>
             <input
+              autoComplete="off"
               type="email"
               name="email"
               id="email"
@@ -95,13 +135,12 @@ function LoginForm({ className, onClick, isLogin, value }) {
           </label>
         </div>
         <div className="flex flex-col gap-1">
-          <Link
-            to="/"
-            onClick={handleLoginClick}
+          <button
+            onClick={login}
             className="w-[354px] rounded-3xl bg-primary-600 text-gray-50 flex justify-center items-center py-[10px] hover:bg-tertiary-600 active:bg-tertiary-800 active:scale-95 transition duration-300"
           >
             Masuk
-          </Link>
+          </button>
           <Text textType="caption" className="self-center text-white">
             Belum punya akun?{' '}
             <button

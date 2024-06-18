@@ -3,7 +3,7 @@ import LoginForm from '../../Layout/AuthPage/LoginForm';
 import { Text } from '../../Elements/Text/Text';
 import { useState } from 'react';
 
-function AuthPage() {
+function AuthPage({ handleLoginState, setLoginState }) {
   const [isLogin, setIsLogin] = useState(true);
   const bgImage = isLogin
     ? 'images/AuthPage/login-bg-img.png'
@@ -26,6 +26,8 @@ function AuthPage() {
             : 'absolute -translate-x-[100%] transition-all duration-[1300ms] ease-linear opacity-0'
         }
         onClick={handleClickChange}
+        handleLoginState={handleLoginState}
+        setLoginState={setLoginState}
       />
       <div
         className={
@@ -50,6 +52,7 @@ function AuthPage() {
             : 'absolute translate-x-[154px] transition-all duration-[1500ms] ease-linear opacity-100'
         }
         onClick={handleClickChange}
+        setLogin={setIsLogin}
       />
       <div
         className={

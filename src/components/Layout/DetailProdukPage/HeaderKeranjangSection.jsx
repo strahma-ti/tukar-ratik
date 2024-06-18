@@ -1,6 +1,6 @@
 import React from 'react';
 
-const HeaderKeranjangSection = () => {
+const HeaderKeranjangSection = ({ poin }) => {
   return (
     <div className="flex items-center justify-between w-full max-w-[1262px] p-4 bg-neutral-50 shadow-300 rounded-xl">
       <div className="flex flex-col">
@@ -10,7 +10,9 @@ const HeaderKeranjangSection = () => {
           favorit!
         </h2>
       </div>
-      <h1 className="font-bold text-H3 text-primary-700">Jumlah Poinmu : 50</h1>
+      <h1 className="font-bold text-H3 text-primary-700">
+        Jumlah Poinmu : {poin}
+      </h1>
     </div>
   );
 };

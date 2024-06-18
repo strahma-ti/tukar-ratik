@@ -22,7 +22,7 @@ function TukarPoin() {
       <Navbar />
       <div
         id="main-content"
-        className="flex flex-col items-center justify-center mt-10 font-sans"
+        className="flex flex-col items-center justify-center mt-[106px] font-sans"
       >
         <HeroSection />
         <div className="mt-[85px] flex flex-col">

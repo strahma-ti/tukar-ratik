@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Landingpage = React.lazy(() =>
@@ -10,12 +10,12 @@ const KirimLimbah = React.lazy(() =>
 const TukarPoin = React.lazy(() =>
   import('../components/Pages/TukarPoin/TukarPoin')
 );
-const LoginPage = React.lazy(() =>
-  import('../components/Pages/AuthPage/LoginPage')
-);
-const RegisterPage = React.lazy(() =>
-  import('../components/Pages/AuthPage/RegisterPage')
-);
+// const LoginPage = React.lazy(() =>
+//   import('../components/Pages/AuthPage/LoginPage')
+// );
+// const RegisterPage = React.lazy(() =>
+//   import('../components/Pages/AuthPage/RegisterPage')
+// );
 const AuthPage = React.lazy(() =>
   import('../components/Pages/AuthPage/AuthPage')
 );
@@ -39,6 +39,12 @@ const RiwayatTukarPoinPage = React.lazy(() =>
 );
 
 const ProjectRoutes = () => {
+  const [isUserLogin, setIsUserLogin] = useState(false);
+
+  const handleLoginState = () => {
+    localStorage.setItem('isLogin', isUserLogin);
+  };
+
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <Router>
@@ -46,11 +52,19 @@ const ProjectRoutes = () => {
           <Route path="/" element={<Landingpage />} />
           <Route path="/kirimlimbah" element={<KirimLimbah />} />
           <Route path="/tukarpoin" element={<TukarPoin />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/auth" element={<AuthPage />} />
+          {/* <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} /> */}
+          <Route
+            path="/auth"
+            element={
+              <AuthPage
+                handleLoginState={handleLoginState}
+                setLoginState={setIsUserLogin}
+              />
+            }
+          />
           <Route path="/cek-admin" element={<CekAdminPage />} />
-          <Route path="/produk" element={<DetailProdukPage />} />
+          <Route path="/produk/:id" element={<DetailProdukPage />} />
           <Route path="/keranjang" element={<KeranjangPage />} />
           <Route path="/checkout" element={<CheckoutPage />} />
           <Route
