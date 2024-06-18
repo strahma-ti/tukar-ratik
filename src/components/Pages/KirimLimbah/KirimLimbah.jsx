@@ -7,7 +7,7 @@ const KirimLimbah = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center w-full pt-[59px]">
+      <div className="flex flex-col items-center w-full pt-[106px]">
         <HeroSection />
         <Form />
       </div>

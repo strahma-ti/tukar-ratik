@@ -1,13 +1,32 @@
-import React from 'react';
+import {
+  faClockRotateLeft,
+  faShoppingCart,
+  faUser,
+} from '@fortawesome/free-solid-svg-icons';
+import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import React, { useState } from 'react';
 // import { Dropdown } from 'flowbite-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const isLogin = localStorage.getItem('isLogin');
+  const [isPop, setIsPop] = useState(false);
+
+  const handleLogout = () => {
+    localStorage.clear('isLogin');
+    localStorage.clear('userId');
+    localStorage.clear('email');
+    navigate('/auth');
+  };
+
   return (
-    <nav className="w-full h-[66px] px-7 bg-white flex items-center justify-between shadow-500 font-sans">
-      <Link to="/">
+    <nav className="w-full h-[66px] px-7 bg-primary-100 flex items-center justify-between shadow-500 font-sans fixed top-0 z-50">
+      <Link to="/tukarPoin">
         <img
-          src="images/app-logo-m.png"
+          src="/images/app-logo-m.png"
           alt=""
           className="w-[158px] h-[46px] object-cover"
         />
@@ -15,29 +34,75 @@ function Navbar() {
       <div className="flex items-center gap-10">
         <Link
           to="/kirimLimbah"
-          className="text-Subtitle font-semibold text-primary-700 hover:text-primary-800"
+          className="font-semibold text-Subtitle text-primary-700 hover:text-primary-800"
         >
           Kirim Limbah
         </Link>
         <a
           href="/tukarPoin"
-          className="text-Subtitle font-semibold text-primary-700 hover:text-primary-800"
+          className="font-semibold text-Subtitle text-primary-700 hover:text-primary-800"
         >
           Tukar Poin
         </a>
       </div>
       <div className="flex items-center">
-        <Link
-          to="/auth"
-          className="ml-2 text-Subtitle font-bold text-primary-700 hover:text-primary-800"
-        >
-          Masuk
-        </Link>
+        {isLogin ? (
+          <div id="login-item" className="flex items-center gap-8">
+            <FontAwesomeIcon
+              icon={faShoppingCart}
+              className="size-[25px] text-primary-700 cursor-pointer"
+            />
+            <div className="relative select-none">
+              {' '}
+              <div
+                onClick={() => setIsPop(!isPop)}
+                className="size-[32px] rounded-full border-[3px] border-primary-700 flex items-center justify-center px-1 pt-1 cursor-pointer relative"
+              >
+                <FontAwesomeIcon
+                  icon={faUser}
+                  className="rounded-full text-primary-700 size-full mt-[1px]"
+                />
+              </div>
+              {isPop ? (
+                <div className="flex flex-col items-center max-w-[148px] w-[148px] h-[88px] rounded-l-xl rounded-br-xl bg-neutral-50 shadow-100 border border-neutral-100 absolute -bottom-[99px] right-[10px] z-50 cursor-default overflow-hidden">
+                  <div className="flex flex-col size-full">
+                    <button className="flex items-center gap-2 px-4 pt-3 pb-2 border-b border-neutral-200">
+                      <FontAwesomeIcon
+                        icon={faClockRotateLeft}
+                        className="size-[18px] text-neutral-700"
+                      />
+                      <h1 className="text-Title text-neutral-700">Riwayat</h1>
+                    </button>
+                    <button
+                      onClick={handleLogout}
+                      className="flex items-center gap-2 px-4 pt-2 pb-3"
+                    >
+                      <FontAwesomeIcon
+                        icon={faArrowRightFromBracket}
+                        className="size-[18px] text-[#AA4338]"
+                      />
+                      <h1 className="text-Title text-[#AA4338]">Keluar</h1>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
+            </div>
+          </div>
+        ) : (
+          <Link
+            to="/auth"
+            className="ml-2 font-bold text-Subtitle text-primary-700 hover:text-primary-800"
+          >
+            Masuk
+          </Link>
+        )}
       </div>
       {/* <Dropdown
         label={
           <div className="flex items-center">
-            <span className="ml-2 text-Subtitle font-bold text-primary-700 hover:text-primary-800">
+            <span className="ml-2 font-bold text-Subtitle text-primary-700 hover:text-primary-800">
               Masuk
             </span>
           </div>

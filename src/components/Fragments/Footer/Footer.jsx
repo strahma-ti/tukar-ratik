@@ -15,7 +15,7 @@ function Footer() {
       <div id="footer1" className="flex w-full justify-between py-[27px]">
         <div className="w-[480px] flex flex-col gap-3">
           <img
-            src="images/tukaratik-logo.png"
+            src="/images/tukaratik-logo.png"
             alt="App"
             className="w-[188px] h-[55px] object-cover"
           />
