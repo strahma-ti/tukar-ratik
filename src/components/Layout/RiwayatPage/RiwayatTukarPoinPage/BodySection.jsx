@@ -43,13 +43,16 @@ const RiwayatItem = ({ status, address, points, desc, products }) => {
       id="riwayat-item"
       className="flex items-center w-full h-20 gap-4 px-6 py-4 border rounded-xl border-neutral-200"
     >
-      <div className="w-[345px] flex flex-col gap-2 pr-2">
+      <div className="w-[345px] flex flex-col gap-2 pr-2 relative">
         <div className="flex items-center gap-2">
           {' '}
           <span className="text-Subtitle text-neutral-600">{day}</span>
           <h1 className="font-bold text-Title text-neutral-800">{date}</h1>
         </div>
-        <p className="w-full overflow-x-scroll truncate text-neutral-700 text-Subtitle no-scrollbar ">
+        <p className="w-[345px] truncate text-neutral-700 text-Subtitle peer cursor-pointer">
+          {address}
+        </p>
+        <p className="absolute -top-[0px] text-center rounded-full size-fit py-[6px] px-3 bg-primary-100 text-nowrap text-Caption opacity-0 peer-hover:opacity-100 transition-all duration-300">
           {address}
         </p>
       </div>
