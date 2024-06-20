@@ -5,7 +5,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // import { Dropdown } from 'flowbite-react';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -22,8 +22,25 @@ function Navbar() {
     navigate('/auth');
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 40) {
+        header.classList.add('bg-primary-100', 'shadow-500');
+      } else {
+        header.classList.remove('bg-primary-100', 'shadow-500');
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="w-full h-[66px] px-7 bg-primary-100 flex items-center justify-between shadow-500 font-sans fixed top-0 z-50">
+    <header className="w-full h-[66px] px-7 flex items-center justify-between font-sans fixed top-0 z-50 transition-all duration-700">
       <Link to="/tukarPoin">
         <img
           src="/images/app-logo-m.png"
@@ -49,6 +66,7 @@ function Navbar() {
         {isLogin ? (
           <div id="login-item" className="flex items-center gap-8">
             <FontAwesomeIcon
+              onClick={() => navigate('/keranjang')}
               icon={faShoppingCart}
               className="size-[25px] text-primary-700 cursor-pointer"
             />
@@ -66,7 +84,10 @@ function Navbar() {
               {isPop ? (
                 <div className="flex flex-col items-center max-w-[148px] w-[148px] h-[88px] rounded-l-xl rounded-br-xl bg-neutral-50 shadow-100 border border-neutral-100 absolute -bottom-[99px] right-[10px] z-50 cursor-default overflow-hidden">
                   <div className="flex flex-col size-full">
-                    <button className="flex items-center gap-2 px-4 pt-3 pb-2 border-b border-neutral-200">
+                    <button
+                      onClick={() => navigate('/riwayat-tukar-poin')}
+                      className="flex items-center gap-2 px-4 pt-3 pb-2 border-b border-neutral-200"
+                    >
                       <FontAwesomeIcon
                         icon={faClockRotateLeft}
                         className="size-[18px] text-neutral-700"
@@ -119,7 +140,7 @@ function Navbar() {
           <Dropdown.Item className="font-semibold">Register</Dropdown.Item>
         </Link>
       </Dropdown> */}
-    </nav>
+    </header>
   );
 }
 

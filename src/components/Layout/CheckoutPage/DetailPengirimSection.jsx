@@ -2,7 +2,13 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const DetailPengirimSection = () => {
+const DetailPengirimSection = ({
+  name,
+  phone,
+  setPhone,
+  address,
+  setAddress,
+}) => {
   return (
     <div className="w-[1262px] h-[216px] rounded-xl bg-neutral-50 border border-neutral-100 shadow-300 p-4 gap-2 flex flex-col">
       <h1 className="font-bold text-neutral-800 text-Title">
@@ -18,7 +24,7 @@ const DetailPengirimSection = () => {
               type="text"
               name=""
               id=""
-              value={`Muhammad Sumbul`}
+              value={name}
               className="w-[593px] h-[42px] rounded-lg bg-neutral-200 border border-neutral-300 p-3 text-neutral-600 text-Subtitle"
               disabled
             />
@@ -31,6 +37,8 @@ const DetailPengirimSection = () => {
               type="text"
               name=""
               id=""
+              value={phone}
+              onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
               placeholder="Masukkan Nomor Telepon ..."
               className="w-[593px] h-[42px] rounded-lg bg-white border border-neutral-300 p-3 text-Subtitle"
             />
@@ -48,12 +56,14 @@ const DetailPengirimSection = () => {
             type="text"
             name=""
             id=""
+            value={address}
+            onChange={(e) => setAddress(e.target.value)}
             placeholder="Masukkan Alamat Lengkap ..."
             className="w-full h-[48px] rounded-lg bg-white"
           />
           <FontAwesomeIcon
             icon={faPenToSquare}
-            className="absolute right-[12px] top-[34px] cursor-pointer active:scale-90 transition-all duration-200"
+            className="absolute right-[12px] top-[38px] cursor-pointer active:scale-90 transition-all duration-200"
           />
         </div>
       </div>
