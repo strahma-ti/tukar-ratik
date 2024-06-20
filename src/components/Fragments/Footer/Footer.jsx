@@ -36,7 +36,7 @@ function Footer() {
             <div className="flex w-full gap-6">
               <div className="flex items-center gap-[10px] flex-row-reverse">
                 <NavLink
-                  to="/kirimLimbah"
+                  to="/kirimlimbah"
                   className="font-bold text-Subtitle text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Kirim Limbah
@@ -45,7 +45,7 @@ function Footer() {
               </div>
               <div className="flex items-center gap-[10px] flex-row-reverse">
                 <NavLink
-                  to="/tukarPoin"
+                  to="/tukarpoin"
                   className="font-bold text-Subtitle text-tertiary-600 hover:text-tertiary-800 active:text-tertiary-900 peer"
                 >
                   Tukar Poin
