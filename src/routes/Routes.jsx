@@ -37,6 +37,9 @@ const RiwayatKirimLimbahPage = React.lazy(() =>
 const RiwayatTukarPoinPage = React.lazy(() =>
   import('../components/Pages/RiwayatPage/RiwayatTukarPoinPage')
 );
+const BerhasilDitukarPage = React.lazy(() =>
+  import('../components/Pages/BerhasilDitukarPage/BerhasilDitukarPage')
+);
 
 const ProjectRoutes = () => {
   const [isUserLogin, setIsUserLogin] = useState(false);
@@ -75,6 +78,7 @@ const ProjectRoutes = () => {
             path="/riwayat-tukar-poin"
             element={<RiwayatTukarPoinPage />}
           />
+          <Route path="/success" element={<BerhasilDitukarPage />} />
         </Routes>
       </Router>
     </React.Suspense>

@@ -4,12 +4,19 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useState } from 'react';
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const ProductContentSection = ({ name, desc, price, stock, weight, img }) => {
-  const [quantity, setQuantity] = useState(1);
-
+const ProductContentSection = ({
+  name,
+  desc,
+  price,
+  stock,
+  weight,
+  img,
+  setQuantity,
+  quantity,
+  handleAddToCart,
+}) => {
   const handleAddQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -73,7 +80,10 @@ const ProductContentSection = ({ name, desc, price, stock, weight, img }) => {
             </div>
           </div>
           <div className="flex items-center gap-6 mt-10">
-            <div className="flex items-center w-fit h-11 py-[13px] px-6 rounded-[24px] border border-primary-700 gap-[13px] active:scale-90 transition-all duration-200 cursor-pointer    ">
+            <div
+              onClick={handleAddToCart}
+              className="flex items-center w-fit h-11 py-[13px] px-6 rounded-[24px] border border-primary-700 gap-[13px] active:scale-90 transition-all duration-200 cursor-pointer    "
+            >
               <FontAwesomeIcon
                 icon={faCartShopping}
                 className="text-primary-700 size-6"

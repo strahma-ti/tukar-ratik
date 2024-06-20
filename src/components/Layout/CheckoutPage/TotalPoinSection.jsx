@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const PopUpConfirm = ({ isOpen, setIsOpen }) => {
+const PopUpConfirm = ({ isOpen, setIsOpen, createOrder }) => {
   return (
     <div
       className={
@@ -32,7 +32,10 @@ const PopUpConfirm = ({ isOpen, setIsOpen }) => {
           >
             Batal
           </button>
-          <button className="w-[180px] h-[38px] bg-primary-600 text-neutral-50 rounded-[24px] text-Subtitle active:scale-90 transition-all duration-200">
+          <button
+            onClick={createOrder}
+            className="w-[180px] h-[38px] bg-primary-600 text-neutral-50 rounded-[24px] text-Subtitle active:scale-90 transition-all duration-200"
+          >
             Tukar
           </button>
         </div>
@@ -41,22 +44,34 @@ const PopUpConfirm = ({ isOpen, setIsOpen }) => {
   );
 };
 
-const TotalPoinSection = () => {
+const TotalPoinSection = ({
+  totalPrice,
+  totalProduct,
+  nextStep,
+  createOrder,
+}) => {
   const [isPopUp, setIsPopUp] = useState(false);
 
   return (
     <div className="w-full h-[153px] -mb-[100px] pl-[115px] pr-[150px] py-4 flex items-center justify-between border-y border-neutral-200 bg-neutral-50 shadow-500">
-      <PopUpConfirm isOpen={isPopUp} setIsOpen={setIsPopUp} />
+      <PopUpConfirm
+        isOpen={isPopUp}
+        setIsOpen={setIsPopUp}
+        createOrder={createOrder}
+      />
       <div className="flex flex-col gap-2">
         <h1 className="text-neutral-700 text-Title">
-          Total Produk Ditukar : 2
+          Total Produk Ditukar : {totalProduct}
         </h1>
-        <h1 className="font-bold text-neutral-800 text-H2">Total Poin : 400</h1>
+        <h1 className="font-bold text-neutral-800 text-H2">
+          Total Poin : {totalPrice}
+        </h1>
       </div>
       <div className="flex items-center">
         <button
+          disabled={nextStep}
           onClick={() => setIsPopUp(!isPopUp)}
-          className="size-fit px-6 py-[10px] rounded-[24px] text-neutral-50 bg-primary-600 active:scale-90 transition-all duration-200"
+          className="size-fit px-6 py-[10px] rounded-[24px] text-neutral-50 bg-primary-600 disabled:bg-neutral-400 active:scale-90 transition-all duration-200"
         >
           Tukar Sekarang
         </button>
