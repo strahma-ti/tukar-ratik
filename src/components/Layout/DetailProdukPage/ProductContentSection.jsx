@@ -4,6 +4,7 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Swal from 'sweetalert2';
 const apiUrl = process.env.REACT_APP_API_URL;
 
 const ProductContentSection = ({
@@ -92,7 +93,16 @@ const ProductContentSection = ({
                 Masukkan Keranjang
               </h1>
             </div>
-            <div className="flex items-center justify-center w-fit h-11 py-[13px] px-6 rounded-[24px] bg-primary-600 active:scale-90 transition-all duration-200 cursor-pointer">
+            <div
+              onClick={() =>
+                Swal.fire(
+                  'Feature on development',
+                  'Jika ingin menukar poin harus dimasukkan ke keranjang terlebih dahulu.',
+                  'warning'
+                )
+              }
+              className="flex items-center justify-center w-fit h-11 py-[13px] px-6 rounded-[24px] bg-primary-600 active:scale-90 transition-all duration-200 cursor-pointer"
+            >
               <h1 className="text-neutral-50 text-Subtitle w-[105px]">
                 Tukar Sekarang
               </h1>
