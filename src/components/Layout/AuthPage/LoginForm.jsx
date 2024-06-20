@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
 import axios from 'axios';
 const apiUrl = process.env.REACT_APP_API_URL;
 
-function LoginForm({ className, onClick, handleLoginState, setLoginState }) {
+function LoginForm({ className, onClick }) {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
@@ -49,8 +49,7 @@ function LoginForm({ className, onClick, handleLoginState, setLoginState }) {
         });
         localStorage.setItem('email', response.data.user.email);
         localStorage.setItem('userId', response.data.user.id);
-        setLoginState(true);
-        handleLoginState();
+        localStorage.setItem('isLogin', true);
         navigate('/tukarpoin');
       } catch (error) {
         if (error.response) {

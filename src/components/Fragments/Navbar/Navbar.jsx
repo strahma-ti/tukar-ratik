@@ -16,9 +16,7 @@ function Navbar() {
   const [isPop, setIsPop] = useState(false);
 
   const handleLogout = () => {
-    localStorage.clear('isLogin');
-    localStorage.clear('userId');
-    localStorage.clear('email');
+    localStorage.clear();
     navigate('/auth');
   };
 

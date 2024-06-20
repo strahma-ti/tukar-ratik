@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 const Landingpage = React.lazy(() =>
@@ -42,12 +42,6 @@ const BerhasilDitukarPage = React.lazy(() =>
 );
 
 const ProjectRoutes = () => {
-  const [isUserLogin, setIsUserLogin] = useState(false);
-
-  const handleLoginState = () => {
-    localStorage.setItem('isLogin', isUserLogin);
-  };
-
   return (
     <React.Suspense fallback={<div>Loading...</div>}>
       <Router>
@@ -57,15 +51,7 @@ const ProjectRoutes = () => {
           <Route path="/tukarpoin" element={<TukarPoin />} />
           {/* <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} /> */}
-          <Route
-            path="/auth"
-            element={
-              <AuthPage
-                handleLoginState={handleLoginState}
-                setLoginState={setIsUserLogin}
-              />
-            }
-          />
+          <Route path="/auth" element={<AuthPage />} />
           <Route path="/cek-admin" element={<CekAdminPage />} />
           <Route path="/produk/:id" element={<DetailProdukPage />} />
           <Route path="/keranjang" element={<KeranjangPage />} />
