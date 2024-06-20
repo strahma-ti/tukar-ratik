@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ContentSection = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="flex flex-col w-[560px] items-center font-poppins mt-[73px] mb-[50px]">
       <div className="size-[332px]">
@@ -17,7 +20,10 @@ const ContentSection = () => {
         Kami sedang meninjau jenis limbah yang ingin kamu kirim. Cek riwayatmu
         untuk melihat perkembangan status penukaranmu.
       </p>
-      <button className="size-fit rounded-[24px] bg-primary-600 text-gray-50 px-6 py-[10px] active:scale-95 transition-all duration-75 mt-[38px]">
+      <button
+        onClick={() => navigate('/riwayat-kirim-limbah')}
+        className="size-fit rounded-[24px] bg-primary-600 text-gray-50 px-6 py-[10px] active:scale-95 transition-all duration-75 mt-[38px]"
+      >
         Lihat Status Penukaran
       </button>
     </div>

@@ -6,7 +6,7 @@ const CekAdminPage = () => {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col items-center w-full">
+      <div className="flex flex-col items-center w-full mt-[106px]">
         {' '}
         <ContentSection />
       </div>

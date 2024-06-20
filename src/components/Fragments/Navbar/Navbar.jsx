@@ -7,7 +7,7 @@ import { faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 // import { Dropdown } from 'flowbite-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 function Navbar() {
   const navigate = useNavigate();
@@ -39,6 +39,9 @@ function Navbar() {
     };
   }, []);
 
+  const location = useLocation();
+  const currentPage = location.pathname.split('/');
+
   return (
     <header className="w-full h-[66px] px-7 flex items-center justify-between font-sans fixed top-0 z-50 transition-all duration-700">
       <Link to="/tukarPoin">
@@ -50,17 +53,21 @@ function Navbar() {
       </Link>
       <div className="flex items-center gap-10">
         <Link
-          to="/kirimLimbah"
-          className="font-semibold text-Subtitle text-primary-700 hover:text-primary-800"
+          aria-current={
+            currentPage.includes('kirimlimbah') ? 'page' : undefined
+          }
+          to="/kirimlimbah"
+          className="font-semibold text-Subtitle text-primary-700 hover:text-primary-800 aria-[current=page]:text-primary-800 aria-[current=page]:font-bold"
         >
           Kirim Limbah
         </Link>
-        <a
-          href="/tukarPoin"
-          className="font-semibold text-Subtitle text-primary-700 hover:text-primary-800"
+        <Link
+          aria-current={currentPage.includes('tukarpoin') ? 'page' : undefined}
+          to="/tukarpoin"
+          className="font-semibold text-Subtitle text-primary-700 hover:text-primary-800 aria-[current=page]:text-primary-800 aria-[current=page]:font-bold"
         >
           Tukar Poin
-        </a>
+        </Link>
       </div>
       <div className="flex items-center">
         {isLogin ? (
