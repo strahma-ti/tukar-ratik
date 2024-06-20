@@ -8,7 +8,7 @@ const RiwayatItem = ({ status, address, points, desc, products }) => {
 
   const date = descParting.slice(1).join(' ');
 
-  const productParting = products.slice(1).join(', ');
+  const productParting = products.slice(0).join(', ');
 
   const Status = (status) => {
     if (status === 'Packed') {

@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 const apiUrl = process.env.REACT_APP_API_URL;
 
-const Form = () => {
+const Form = ({ isLogin }) => {
   const idUser = localStorage.getItem('userId');
 
   const lokasiPenukaranOptionsList = [
@@ -286,7 +286,16 @@ const Form = () => {
         </div>
       </div>
       <button
-        onClick={handleSubmitWaste}
+        onClick={
+          isLogin
+            ? handleSubmitWaste
+            : () =>
+                Swal.fire(
+                  'Belum login',
+                  'Anda harus login terlebih dahulu.',
+                  'info'
+                ).then(() => navigate('/auth'))
+        }
         className="flex items-center justify-center w-[833px] h-[38px] cursor-pointer text-gray-50 hover:text-gray-200 active:text-gray-400 bg-primary-600 hover:bg-tertiary-600 active:bg-tertiary-800 transition duration-300 rounded-full"
       >
         Tukar Ratik

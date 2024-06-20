@@ -72,6 +72,8 @@ const CheckoutPage = () => {
         address: address,
         phone: phone,
       });
+      localStorage.removeItem('totalProduct');
+      localStorage.removeItem('totalPrice');
       navigate('/success');
     } catch (error) {
       console.log(error);

@@ -4,6 +4,7 @@ import {
   faPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 const apiUrl = process.env.REACT_APP_API_URL;
 
@@ -18,6 +19,8 @@ const ProductContentSection = ({
   quantity,
   handleAddToCart,
 }) => {
+  const isLogin = localStorage.getItem('isLogin');
+  const navigate = useNavigate();
   const handleAddQuantity = () => {
     setQuantity(quantity + 1);
   };
@@ -82,7 +85,16 @@ const ProductContentSection = ({
           </div>
           <div className="flex items-center gap-6 mt-10">
             <div
-              onClick={handleAddToCart}
+              onClick={
+                isLogin
+                  ? handleAddToCart
+                  : () =>
+                      Swal.fire(
+                        'Belum login',
+                        'Anda harus login terlebih dahulu.',
+                        'info'
+                      ).then(() => navigate('/auth'))
+              }
               className="flex items-center w-fit h-11 py-[13px] px-6 rounded-[24px] border border-primary-700 gap-[13px] active:scale-90 transition-all duration-200 cursor-pointer    "
             >
               <FontAwesomeIcon
