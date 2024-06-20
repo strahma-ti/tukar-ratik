@@ -1,27 +1,33 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const RiwayatItem = ({ status }) => {
+const RiwayatItem = ({ status, address, points, desc, waste }) => {
+  const descParting = desc?.split(' ');
+
+  const day = descParting[0];
+
+  const date = descParting.slice(1).join(' ');
+
   const Status = (status) => {
-    if (status === 'menunggu') {
+    if (status === 'Pending') {
       return (
         <div className="w-[153px] h-[42px] rounded-xl flex items-center justify-center bg-[#D8E9AC] text-[#2E3F02] text-Subtitle">
           Menunggu
         </div>
       );
-    } else if (status === 'menjemput') {
+    } else if (status === 'Picked up') {
       return (
         <div className="w-[153px] h-[42px] rounded-xl flex items-center justify-center bg-primary-200 text-primary-800 text-Subtitle">
           Menjemput
         </div>
       );
-    } else if (status === 'selesai') {
+    } else if (status === 'Completed') {
       return (
         <div className="w-[153px] h-[42px] rounded-xl flex items-center justify-center bg-tertiary-100 text-tertiary-800 text-Subtitle">
           Selesai
         </div>
       );
-    } else if (status === 'gagal') {
+    } else if (status === 'Failed') {
       return (
         <div className="w-[153px] h-[42px] rounded-xl flex items-center justify-center bg-[#FFCCC6] text-[#80332A] text-Subtitle">
           Gagal
@@ -38,27 +44,27 @@ const RiwayatItem = ({ status }) => {
       <div className="w-[345px] flex flex-col gap-2 pr-2">
         <div className="flex items-center gap-2">
           {' '}
-          <span className="text-Subtitle text-neutral-600">Senin</span>
-          <h1 className="font-bold text-Title text-neutral-800">13 Mei 2024</h1>
+          <span className="text-Subtitle text-neutral-600">{day}</span>
+          <h1 className="font-bold text-Title text-neutral-800">{date}</h1>
         </div>
         <p className="w-full overflow-x-scroll truncate text-neutral-700 text-Subtitle no-scrollbar ">
-          JL. ABC, Komplek Kesehatan Blok 2 no.12, Banjarmasin Timur
+          {address}
         </p>
       </div>
-      <div className="w-[271px] text-neutral-800 text-Subtitle text-nowrap flex flex-col items-center px-4">
-        <h1 className="w-full overflow-hidden truncate">
-          Sisa makanan, Dedaunan, Limbah Kertas
-        </h1>
+      <div className="w-[271px] text-neutral-800 text-Subtitle text-nowrap flex flex-col items-center px-4 text-center ml-16">
+        <h1 className="w-full overflow-hidden truncate">{waste}</h1>
       </div>
       <div className="w-[220px] text-neutral-800 text-Subtitle text-nowrap flex flex-col items-center px-4">
-        <h1 className="w-full overflow-hidden text-center">7000</h1>
+        <h1 className="w-full overflow-hidden text-center text-green-600">
+          {points}
+        </h1>
       </div>
       <div className="w-[345px] flex flex-col pl-[60px]">{Status(status)}</div>
     </div>
   );
 };
 
-const BodySection = () => {
+const BodySection = ({ data }) => {
   const navigate = useNavigate();
 
   return (
@@ -102,10 +108,16 @@ const BodySection = () => {
           id="riwayat-list"
           className="flex flex-col items-center w-full gap-4 mt-6"
         >
-          <RiwayatItem status={'menunggu'} />
-          <RiwayatItem status={'selesai'} />
-          <RiwayatItem status={'menjemput'} />
-          <RiwayatItem status={'gagal'} />
+          {data?.map((item, index) => (
+            <RiwayatItem
+              key={index}
+              status={item.status}
+              address={item.address}
+              points={item.pointsAwarded}
+              desc={item.description}
+              waste={item.wasteType}
+            />
+          ))}
         </div>
       </div>
     </div>
