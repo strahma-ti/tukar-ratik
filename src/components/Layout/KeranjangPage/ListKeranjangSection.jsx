@@ -211,7 +211,7 @@ const ListKeranjangSection = ({ cartItem, userId, point }) => {
   const navigate = useNavigate();
 
   const handleToCheckout = () => {
-    if (totalPrice === 0 && cartItem?.length === 0) {
+    if (totalPrice === 0 || cartItem?.length === 0) {
       Swal.fire(
         'Keranjang kamu masih kosong',
         'Ayo masukkan beberapa produk ke dalam keranjang untuk melanjutkan.',
